@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 레이아웃 데이터 결합 -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.openweathermap2.viewmodel.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Snow2"
+        android:orientation="vertical"
+        android:theme="@style/MaterialAppTheme"
+        android:weightSum="10">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ev_serarch_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:hint="@string/search_hint"
+            app:boxStrokeColor="@color/Orange3"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange3"
+            app:startIconDrawable="@drawable/baseline_search_black_18"
+            app:startIconTint="@color/Orange3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/baseline_public_black_18"
+                android:drawableTint="@color/Orange3"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="20dp"
+                android:text="@string/counrty_name"
+                android:textColor="@color/DimGray"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/baseline_apartment_black_18"
+                android:drawableTint="@color/Orange3"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="20dp"
+                android:text="@string/city_name"
+                android:textColor="@color/DimGray"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.5"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/srl_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+                    android:id="@+id/list_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:fastScrollPopupBgColor="@color/Orange3"
+                    app:fastScrollPopupTextColor="@android:color/primary_text_dark"
+                    app:fastScrollThumbColor="@color/Orange3"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>
